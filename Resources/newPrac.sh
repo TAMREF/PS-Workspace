@@ -1,10 +1,12 @@
-#!/usr/bin/zsh
-
 # remember to change permission!
 
-mkdir -p $1/$2/$3
+# $1: project root folder
+# $2: platform name
+# $3: problem id
 
-file="$1/$2/$3/code.cpp"
+mkdir -p $1/Practice/$2/$3
+
+file="$1/Practice/$2/$3/code.cpp"
 
 echo Making file: $file
 

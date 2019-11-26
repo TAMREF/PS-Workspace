@@ -1,0 +1,66 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-O2",
+                "-Wall",
+                "-lm",
+                "-static",
+                "-std=c++17",
+                "-o",
+                "${workspaceFolder}/Local/main",
+                "${file}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build in debug mode",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "-O2",
+                "-Wall",
+                "-lm",
+                "-static",
+                "-std=c++17",
+                "-o",
+                "${workspaceFolder}/Local/main",
+                "${file}"
+            ]
+        },
+        {
+            "label": "make new practice",
+            "type": "shell",
+            "command": "${workspaceFolder}/Resources/newPrac.sh",
+            "args": [
+                "${workspaceFolder}",
+                "${input:platformName}",
+                "${input:problemId}",
+            ],
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "platformName",
+            "description": "What platform do you want to practice on?",
+            "default": "BOJ",
+            "options": ["BOJ", "CodeForces", "AtCoder", "OJUZ", "etc"]
+        },
+        {
+            "type": "promptString",
+            "id": "problemId",
+            "description": "What is the problem's Id?",
+            "default": "0",
+        }
+    ]
+}

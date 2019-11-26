@@ -2,10 +2,7 @@
 
 ### Projet Structure
 
-OJ names are uppercase. (CF, ATC, BOJ)
-contest names are lowercase (neerc19, fxcup19, ioi18)
-problem names are lowercase (13565, a, g)
-everything else are lowercase in default
+everything is lowercase in default.
 
  * Resources
    * logic for making new files
@@ -19,13 +16,17 @@ everything else are lowercase in default
      * source codes
      * data, editorial, solution
      * records (time, score, notes ...)
+     * have output file itself
  * Practice
    * `oj_name(or etc)/problem_id`
  * Sandbox
    * (Copying files from practice / contest)
    * test setting
- * Misc
+ * Local
 
+
+### Notes
+ * C++17 is default
 
 ### TODO
 **Boldfaced** for next step
@@ -37,8 +38,6 @@ everything else are lowercase in default
 * **how to make new space**
   * contest space setup
     * CF, AtCoder, online open, etc.
-  * practice space setup
-    * CF, BOJ, OJUZ
   * dummy (experimental) space
     * python
 * how to build & run
@@ -50,3 +49,8 @@ everything else are lowercase in default
   * dump everything and start over
   * testlib
   * useful data generators
+* cleaning the workspace
+  * remove all compiled output files
+* copy project
+  * like, from Practice/BOJ/16327 to Contest/seerc18/b
+
