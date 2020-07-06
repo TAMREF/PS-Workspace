@@ -6,6 +6,7 @@
             "type": "shell",
             "command": "g++",
             "args": [
+                "-g",
                 "-O2",
                 "-Wall",
                 "-lm",
