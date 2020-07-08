@@ -1,22 +1,19 @@
+#!/bin/bash
 # remember to change permission!
 
-# $1: project root folder
+# $1: problem id
 # $2: platform name
-# $3: problem id
 
-mkdir -p $1/Practice/$2/$3
 
-file="$1/Practice/$2/$3/code.cpp"
+echo ${BASH_SOURCE[0]}
 
-echo Making file: $file
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-if [ -f $file ]
-then
-    echo "File is already there!"
+if [[ -n $2 ]]; then
+    FILE=$($DIR/create.py -id $1 -pl $2)
 else
-    cp $1/Resources/standard.cpp $file
+    FILE=$($DIR/create.py -id $1)
 fi
 
-code --goto $file
-
-echo "Done."
+# Can python handle this?
+code --goto $FILE

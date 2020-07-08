@@ -9,13 +9,17 @@ from pathlib import Path
 root_path = Path(__file__).parent.parent.absolute()
 
 
+def eprint(*args, **kwargs):
+    print(*args, file=sys.stderr, **kwargs)
+
+
 def main(args):
     dir_path = root_path / 'Practice'
     if args.platform:
-        dir_path /= args.platform.captialize()
+        dir_path /= args.platform.capitalize()
 
     if not dir_path.exists():
-        print('Wrapping directory %s does not exists. Creating now.' % dir_path)
+        eprint('Wrapping directory %s does not exists. Creating now.' % dir_path)
         dir_path.mkdir(parents=True)
     
     template_path = root_path / 'Resources' / ('%s.cpp' % args.template)
@@ -24,10 +28,12 @@ def main(args):
     file_path = dir_path / name
 
     if file_path.exists():
-        print("The file %s already exists. No action required." % name)
+        eprint("The file %s already exists. No action required." % name)
     else:
-        print("Creating %s from %s template." % (name, template_path.stem))
+        eprint("Creating %s from %s template." % (name, template_path.stem))
         shutil.copy(str(template_path), str(file_path))
+    
+    print(str(file_path))
     
 
 if __name__ == "__main__":
@@ -38,6 +44,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
     main(args)
 
-# if file doesnt exist, make file
-
-# open file
