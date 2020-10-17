@@ -4,18 +4,21 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++",
+            "command": "/usr/bin/g++",
             "args": [
-                "-g",
                 "-O2",
                 "-Wall",
                 "-lm",
                 "-static",
                 "-std=c++17",
+                "-DTAMREF",
                 "-o",
-                "${workspaceFolder}/Local/main",
+                "${fileBasenameNoExtension}",
                 "${file}"
             ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -32,10 +35,29 @@
                 "-lm",
                 "-static",
                 "-std=c++17",
+                "-DTAMREF",
                 "-o",
-                "${workspaceFolder}/Local/main",
+                "${fileBasenameNoExtension}",
                 "${file}"
             ]
+        },
+        {
+            "label": "execute",
+            "type": "shell",
+            "command": "time ./${fileBasenameNoExtension}",
+            "group":"test",
+            "options": {
+                "cwd": "${fileDirname}"
+            }
+        },
+        {
+            "label": "execute with input file",
+            "type": "shell",
+            "command": "time ./${fileBasenameNoExtension} < ${input:Inputfilename}",
+            "group":"test",
+            "options":{
+                "cwd": "${fileDirname}"
+            }
         },
         {
             "label": "make new practice",
@@ -47,6 +69,18 @@
                 "${input:problemId}",
             ],
             "problemMatcher": []
+        },
+        {
+            "label": "make new contest",
+            "type": "shell",
+            "command": "${workspaceFolder}/Resources/newContest.sh",
+            "args": [
+                "${workspaceFolder}",
+                "${input:platformName}",
+                "${input:problemId}",
+                "${input:numproblem}"
+            ],
+            "problemMatcher": []
         }
     ],
     "inputs": [
@@ -55,13 +89,25 @@
             "id": "platformName",
             "description": "What platform do you want to practice on?",
             "default": "BOJ",
-            "options": ["BOJ", "CodeForces", "AtCoder", "OJUZ", "etc"]
+            "options": ["BOJ", "CodeForces", "AtCoder", "ojuz", "PE", "etc"]
         },
         {
             "type": "promptString",
             "id": "problemId",
             "description": "What is the problem's Id?",
             "default": "0",
+        },
+        {
+            "type": "promptString",
+            "id": "Inputfilename",
+            "description": "What is the input file name?",
+            "default": "input.in"
+        },
+        {
+            "type": "promptString",
+            "id": "numproblem",
+            "description": "How many problems are in the contest?",
+            "default": "0"
         }
     ]
 }
