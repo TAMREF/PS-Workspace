@@ -49,7 +49,7 @@ for letter in ${all[@]:0:$4} ; do
     fi
 done
 
-code --goto $1/Contest/$2/$3/A/A.in
+code --goto $1/Contest/$2/$3/A/input.in
 code --goto $1/Contest/$2/$3/A/A.cpp
 
 echo "Done."
