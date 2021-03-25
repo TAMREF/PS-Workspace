@@ -81,6 +81,17 @@
                 "${input:numproblem}"
             ],
             "problemMatcher": []
+        },
+        {
+            "label": "establish new problemsetting env",
+            "type": "shell",
+            "command": "${workspaceFolder}/Resources/newProbset.sh",
+            "args": [
+                "${workspaceFolder}",
+                "${input:contestName}",
+                "${input:problemId}"
+            ],
+            "problemMatcher": []
         }
     ],
     "inputs": [
@@ -90,6 +101,12 @@
             "description": "What platform do you want to practice on?",
             "default": "BOJ",
             "options": ["BOJ", "CodeForces", "AtCoder", "ojuz", "PE", "etc"]
+        },
+        {
+            "type": "promptString",
+            "id": "contestName",
+            "description": "What is name of the contest?",
+            "default": "",
         },
         {
             "type": "promptString",

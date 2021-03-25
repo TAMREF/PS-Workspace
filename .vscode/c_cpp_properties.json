@@ -6,10 +6,10 @@
                 "${workspaceFolder}/**"
             ],
             "defines": [],
-            "compilerPath": "/usr/local/cuda/bin/gcc",
-            "cStandard": "c11",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
             "cppStandard": "gnu++17",
-            "intelliSenseMode": "clang-x64"
+            "intelliSenseMode": "linux-gcc-x64"
         }
     ],
     "version": 4
